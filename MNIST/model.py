@@ -68,24 +68,24 @@ model = RobustModel()
 criterion = torch.nn.CrossEntropyLoss() # 비용 함수에 소프트맥스 함수 포함되어져 있음.
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 total_batch = len(data_loader)
-# print('총 배치의 수 : {}'.format(total_batch))
-# PATH='model.pt'
-# for epoch in range(training_epochs):
-#    avg_cost = 0
-#    print(f"[Epoch {epoch+1} / {training_epochs}]")
-#    for X, Y in tqdm(data_loader): # 미니 배치 단위로 꺼내온다. X 는 미니 배치, Y 느 ㄴ레이블.
-#       optimizer.zero_grad()
+print('총 배치의 수 : {}'.format(total_batch))
+PATH='model.pt'
+for epoch in range(training_epochs):
+   avg_cost = 0
+   print(f"[Epoch {epoch+1} / {training_epochs}]")
+   for X, Y in tqdm(data_loader): # 미니 배치 단위로 꺼내온다. X 는 미니 배치, Y 느 ㄴ레이블.
+      optimizer.zero_grad()
       
-#       hypothesis = model(X)
-#       cost = criterion(hypothesis, Y)
-#       cost.backward()
+      hypothesis = model(X)
+      cost = criterion(hypothesis, Y)
+      cost.backward()
       
-#       optimizer.step()
-#       avg_cost += cost / total_batch
+      optimizer.step()
+      avg_cost += cost / total_batch
       
-#    print('[Epoch: {:>4}] cost = {:>.9}'.format(epoch + 1, avg_cost))
+   print('[Epoch: {:>4}] cost = {:>.9}'.format(epoch + 1, avg_cost))
    
-#    torch.save(model.state_dict(), PATH)
+   torch.save(model.state_dict(), PATH)
 with torch.no_grad():
    X_test = mnist_test.data.view(len(mnist_test), 1, 28, 28).float()
    Y_test = mnist_test.targets
