@@ -1,5 +1,5 @@
 import pygame, sys
-from datafile import *
+from Hanyang.datafile import *
 
 class Game:
     def __init__(self): 
