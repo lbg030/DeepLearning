@@ -4,14 +4,13 @@ import numpy as np
 import os
 import glob as glob
 
-
-
 from xml.etree import ElementTree as et
 from config import CLASSES, RESIZE_TO, TRAIN_DIR, VALID_DIR, BATCH_SIZE
 from torch.utils.data import Dataset, DataLoader
 from utils import collate_fn, get_train_transform, get_valid_transform
 
 import json
+
 # the dataset class
 class MicrocontrollerDataset(Dataset):
     def __init__(self, dir_path, width, height, classes, transforms=None):
@@ -39,9 +38,6 @@ class MicrocontrollerDataset(Dataset):
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB).astype(np.float32)
         image_resized = cv2.resize(image, (self.width, self.height))
         image_resized /= 255.0
-        
-        
-        # csv 파일 읽어 오는 코드 
         
         # capture the corresponding XML file for getting the annotations
         annot_filename = image_name[:-4] + '.json'
