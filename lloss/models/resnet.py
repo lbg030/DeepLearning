@@ -72,13 +72,9 @@ class ResNet(nn.Module):
         self.layer2 = self._make_layer(block, 128, num_blocks[1], stride=2)
         self.layer3 = self._make_layer(block, 256, num_blocks[2], stride=2)
         self.layer4 = self._make_layer(block, 512, num_blocks[3], stride=2)
-        # print(block)
-        
-        # self.linear = nn.Linear(512*block.expansion, num_classes)
-        # self.linear = nn.Linear(61952, num_classes)
         self.linear = nn.Linear(247808, num_classes)
-        # print("-------------------------")
-        # print(512*block.expansion)
+        
+        
         
     def _make_layer(self, block, planes, num_blocks, stride):
         strides = [stride] + [1]*(num_blocks-1)
@@ -89,20 +85,15 @@ class ResNet(nn.Module):
         return nn.Sequential(*layers)
 
     def forward(self, x):
-        # print(x.shape)
+        
         out = F.relu(self.bn1(self.conv1(x)))
         out1 = self.layer1(out)
         out2 = self.layer2(out1)
         out3 = self.layer3(out2)
         out4 = self.layer4(out3)
-        # print(out4.shape)
         out = F.avg_pool2d(out4, 4)
-        # print(out.shape)
         out = out.view(out.size(0), -1)
-        # print("out shape = ",out.shape)
-        
         out = self.linear(out)
-        
         return out, [out1, out2, out3, out4]
 
 

@@ -16,7 +16,7 @@ n_exp = 19
 # 데이터 관련 config 
 # data_head = '/home/lbg030/luna/data/fst'
 # data_src = "/home/lbg030/luna/data/experiments/experiment19"
-data_src = "/home/lbg030/luna/data/custom_data"
+data_src = "/Users/ibyeong-gwon/Desktop/custom_data"
 
 defect_types = ['hz', 'bz', 'chem', 'yd']
 num_classes = len(defect_types)
@@ -38,14 +38,7 @@ class FSTData(Dataset) :
         assert training_type in ['train', 'valid', 'test'], '데이터 타입을 다시 확인해주세요. train, valid, test 중 하나를 입력으로 넣어야합니다.'
         self.img_paths, self.labels = [], []
         self.transform = transform
-        
-        # if training_type == 'train':
-        #     data_dir = "/home/lbg030/luna/data/fst"
-        #     for path in Path(data_dir).glob(f'*/*') : 
-        #         if path.suffix in ['.jpg', '.png'] : 
-        #             self.img_paths.append(str(path))
-        #             self.labels.append(defect_dict[str(path.parent.name)])
-        # else :
+    
         for path in Path(data_dir).glob(f'*/{training_type}/*') :
             if path.suffix in ['.jpg', '.png'] : 
                 self.img_paths.append(str(path))
@@ -62,7 +55,7 @@ class FSTData(Dataset) :
 
         if self.transform :
             img = self.transform(img)
-        
+            
         return img, label
 
 # train_transform = T.Compose([
