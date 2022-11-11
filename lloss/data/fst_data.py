@@ -16,7 +16,7 @@ n_exp = 19
 # 데이터 관련 config 
 # data_head = '/home/lbg030/luna/data/fst'
 # data_src = "/home/lbg030/luna/data/experiments/experiment19"
-data_src = "/Users/ibyeong-gwon/Desktop/custom_data"
+data_src = "C:\\Users\\lee97\\Desktop\\custom_data"
 
 defect_types = ['hz', 'bz', 'chem', 'yd']
 num_classes = len(defect_types)
