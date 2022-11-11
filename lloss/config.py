@@ -7,8 +7,8 @@ import torch
 NUM_TRAIN = 2600 # N
 # NUM_VAL   = 50000 - NUM_TRAIN
 BATCH     = 4 # B
-SUBSET    = 900 # M
-ADDENDUM  = 200 # K
+SUBSET    = 400 # M
+ADDENDUM  = 50 # K
 
 MARGIN = 1.0 # xi
 WEIGHT = 1.0 # lambda
@@ -16,7 +16,7 @@ WEIGHT = 1.0 # lambda
 TRIALS = 3
 CYCLES = 5
 
-EPOCH = 200
+EPOCH = 1
 LR = 0.001
 MILESTONES = [160]
 EPOCHL = 120 # After 120 epochs, stop the gradient from the loss prediction module propagated to the target model
