@@ -8,7 +8,7 @@ NUM_TRAIN = 2600 # N
 # NUM_VAL   = 50000 - NUM_TRAIN
 BATCH     = 4 # B
 SUBSET    = 400 # M
-ADDENDUM  = 50 # K
+ADDENDUM  = 20 # K
 
 MARGIN = 1.0 # xi
 WEIGHT = 1.0 # lambda
