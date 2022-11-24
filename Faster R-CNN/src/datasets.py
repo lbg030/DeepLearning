@@ -112,6 +112,7 @@ class MicrocontrollerDataset(Dataset):
 # prepare the final datasets and data loaders
 train_dataset = MicrocontrollerDataset(TRAIN_DIR, RESIZE_TO, RESIZE_TO, CLASSES, get_train_transform())
 valid_dataset = MicrocontrollerDataset(VALID_DIR, RESIZE_TO, RESIZE_TO, CLASSES, get_valid_transform())
+
 train_loader = DataLoader(
     train_dataset,
     batch_size=BATCH_SIZE,
@@ -119,6 +120,7 @@ train_loader = DataLoader(
     num_workers=0,
     collate_fn=collate_fn
 )
+
 valid_loader = DataLoader(
     valid_dataset,
     batch_size=BATCH_SIZE,

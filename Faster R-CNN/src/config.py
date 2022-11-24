@@ -4,7 +4,7 @@ BATCH_SIZE = 8 # increase / decrease according to GPU memeory
 RESIZE_TO = 512 # resize the image for training and transforms
 NUM_EPOCHS = 1 # number of epochs to train for
 
-DEVICE = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+DEVICE = torch.device('cuda:3') if torch.cuda.is_available() else torch.device('cpu')
 
 # training images and XML files directory
 TRAIN_DIR = '../train_dataset/train'
@@ -13,7 +13,7 @@ VALID_DIR = '../train_dataset/valid'
 
 # classes: 0 index is reserved for background
 CLASSES = [
-    '양품', 'crack',
+    "0","1","2","3","4","5","6"
 ]
 
 NUM_CLASSES = 2
