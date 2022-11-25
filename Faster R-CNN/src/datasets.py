@@ -56,11 +56,16 @@ class MicrocontrollerDataset(Dataset):
         image_height = image.shape[0]
         
         # box coordinates for xml files are extracted and corrected for image size given
-        member = data['annotation']['object']
+        member = data
+        
+        data_label = list(member.keys())[0]
             # map the current object name to `classes` list to get...
             # ... the label index and append to `labels` list
-        labels.append(self.classes.index(member['name']))
+        labels.append(self.classes.index(data_label))
         
+        x,y,w,h = member[data_label]
+        
+        xmin = int(float(x-w/2))
        # xmin = left corner x-coordinates
         xmin = int(float(member['bndbox']['xmin']))
         # xmax = right corner x-coordinates
@@ -74,9 +79,9 @@ class MicrocontrollerDataset(Dataset):
         xmin_final = (xmin/image_width)*self.width
         xmax_final = (xmax/image_width)*self.width
         ymin_final = (ymin/image_height)*self.height
-        yamx_final = (ymax/image_height)*self.height
+        ymax_final = (ymax/image_height)*self.height
         
-        boxes.append([xmin_final, ymin_final, xmax_final, yamx_final])
+        boxes.append([xmin_final, ymin_final, xmax_final, ymax_final])
         
         # bounding box to tensor
         boxes = torch.as_tensor(boxes, dtype=torch.float32)
