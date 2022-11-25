@@ -7,10 +7,8 @@ from tqdm.auto import tqdm
 from datasets import train_loader, valid_loader
 
 import torch
-import matplotlib.pyplot as plt
-import time
 
-plt.style.use('ggplot')
+import time
 
 
 # function for running training iterations
@@ -114,10 +112,6 @@ if __name__ == '__main__':
         train_loss_hist.reset()
         val_loss_hist.reset()
 
-        # create two subplots, one for each, training and validation
-        figure_1, train_ax = plt.subplots()
-        figure_2, valid_ax = plt.subplots()
-
         # start timer and carry out training and validation
         start = time.time()
         train_loss = train(train_loader, model)
@@ -155,6 +149,5 @@ if __name__ == '__main__':
 
             torch.save(model.state_dict(), f"{OUT_DIR}/model{epoch+1}.pth")
         
-        plt.close('all')
         # sleep for 5 seconds after each epoch
         time.sleep(5)
