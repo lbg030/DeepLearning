@@ -66,14 +66,17 @@ class MicrocontrollerDataset(Dataset):
         x,y,w,h = member[data_label]
         
         xmin = int(float(x-w/2))
+        xmax = int(float(x+w/2))
+        ymin = int(float(y-h/2))
+        ymax = int(float(y+h/2))
        # xmin = left corner x-coordinates
-        xmin = int(float(member['bndbox']['xmin']))
-        # xmax = right corner x-coordinates
-        xmax = int(float(member['bndbox']['xmax']))
-        # ymin = left corner y-coordinates
-        ymin = int(float(member['bndbox']['ymin']))
-        # ymax = right corner y-coordinates
-        ymax = int(float(member['bndbox']['ymax']))
+        # xmin = int(float(member['bndbox']['xmin']))
+        # # xmax = right corner x-coordinates
+        # xmax = int(float(member['bndbox']['xmax']))
+        # # ymin = left corner y-coordinates
+        # ymin = int(float(member['bndbox']['ymin']))
+        # # ymax = right corner y-coordinates
+        # ymax = int(float(member['bndbox']['ymax']))
         # resize the bounding boxes according to the...
         # ... desired `width`, `height`
         xmin_final = (xmin/image_width)*self.width
@@ -122,7 +125,7 @@ train_loader = DataLoader(
     train_dataset,
     batch_size=BATCH_SIZE,
     shuffle=True,
-    num_workers=0,
+    num_workers=1,
     collate_fn=collate_fn
 )
 
@@ -130,7 +133,7 @@ valid_loader = DataLoader(
     valid_dataset,
     batch_size=BATCH_SIZE,
     shuffle=False,
-    num_workers=0,
+    num_workers=1,
     collate_fn=collate_fn
 )
 print(f"Number of training samples: {len(train_dataset)}")
