@@ -1,15 +1,15 @@
 import torch
 
-BATCH_SIZE = 16 # increase / decrease according to GPU memeory
+BATCH_SIZE = 2 # increase / decrease according to GPU memeory
 RESIZE_TO = 224 # resize the image for training and transforms
-NUM_EPOCHS = 1 # number of epochs to train for
+NUM_EPOCHS = 10 # number of epochs to train for
 
 DEVICE = torch.device('cuda:3') if torch.cuda.is_available() else torch.device('cpu')
 
 # training images and XML files directory
-TRAIN_DIR = '/Users/ibyeong-gwon/Downloads/train'
+TRAIN_DIR = '/Users/ibyeong-gwon/Downloads/train_a'
 # validation images and XML files directory
-VALID_DIR = '/Users/ibyeong-gwon/Downloads/test'
+VALID_DIR = '/Users/ibyeong-gwon/Downloads/test_a'
 
 # classes: 0 index is reserved for background
 CLASSES = [

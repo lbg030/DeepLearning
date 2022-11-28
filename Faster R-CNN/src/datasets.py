@@ -1,4 +1,6 @@
+
 import torch
+
 import cv2
 import numpy as np
 import os
@@ -63,12 +65,14 @@ class MicrocontrollerDataset(Dataset):
             # ... the label index and append to `labels` list
         labels.append(self.classes.index(data_label))
         
-        x,y,w,h = member[data_label]
+        print(data_label)
         
-        xmin = int(float(x-w/2))
-        xmax = int(float(x+w/2))
-        ymin = int(float(y-h/2))
-        ymax = int(float(y+h/2))
+        (x,y,w,h) = map(float, member[data_label][0])
+        
+        xmin = (float(x-w/2))
+        xmax = (float(x+w/2))
+        ymin = (float(y-h/2))
+        ymax = (float(y+h/2))
        # xmin = left corner x-coordinates
         # xmin = int(float(member['bndbox']['xmin']))
         # # xmax = right corner x-coordinates
@@ -150,22 +154,22 @@ if __name__ == '__main__':
     print(f"Number of training images: {len(dataset)}")
     
     # function to visualize a single sample
-    def visualize_sample(image, target):
-        box = target['boxes'][0]
-        label = CLASSES[target['labels']]
-        cv2.rectangle(
-            image, 
-            (int(box[0]), int(box[1])), (int(box[2]), int(box[3])),
-            (0, 255, 0), 2
-        )
-        cv2.putText(
-            image, label, (int(box[0]), int(box[1]-5)), 
-            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2
-        )
-        cv2.imshow('Image', image)
-        cv2.waitKey(0)
+    # def visualize_sample(image, target):
+    #     box = target['boxes'][0]
+    #     label = CLASSES[target['labels']]
+    #     cv2.rectangle(
+    #         image, 
+    #         (int(box[0]), int(box[1])), (int(box[2]), int(box[3])),
+    #         (0, 255, 0), 2
+    #     )
+    #     cv2.putText(
+    #         image, label, (int(box[0]), int(box[1]-5)), 
+    #         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2
+    #     )
+    #     cv2.imshow('Image', image)
+    #     cv2.waitKey(0)
         
-    NUM_SAMPLES_TO_VISUALIZE = 7
-    for i in range(NUM_SAMPLES_TO_VISUALIZE):
-        image, target = dataset[i]
-        visualize_sample(image, target)
+    # NUM_SAMPLES_TO_VISUALIZE = 7
+    # for i in range(NUM_SAMPLES_TO_VISUALIZE):
+    #     image, target = dataset[i]
+    #     visualize_sample(image, target)
