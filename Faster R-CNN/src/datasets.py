@@ -42,7 +42,9 @@ class MicrocontrollerDataset(Dataset):
         image_resized /= 255.0
         
         # capture the corresponding XML file for getting the annotations
-        annot_filename = image_name[:-4] + '.json'
+        # annot_filename = image_name[:-4] + '.json'
+        annot_filename = image_name[:-4] + '.txt'
+        
         annot_file_path = os.path.join(self.dir_path, annot_filename)
         
         boxes = []
@@ -51,8 +53,15 @@ class MicrocontrollerDataset(Dataset):
         
         # tree = et.parse(annot_file_path)
         # root = tree.getroot()
-        with open(annot_file_path, 'r') as f:
-            data = json.load(f)
+        file = open(annot_file_path, "r")
+        data = list(map(float, (file.readline().rstrip().split())))
+        file.close()
+        
+        print(f"data : {data}")
+        print(f"member = : {data[0]}")
+        print(type(data[0]))
+        # with open(annot_file_path, 'r') as f:
+        #     data = json.load(f)
         # get the height and width of the image
         image_width = image.shape[1]
         image_height = image.shape[0]
@@ -60,14 +69,15 @@ class MicrocontrollerDataset(Dataset):
         # box coordinates for xml files are extracted and corrected for image size given
         member = data
         
-        data_label = list(member.keys())[0]
+        print(member)
+        data_label = (str(int((member[0]))))
             # map the current object name to `classes` list to get...
             # ... the label index and append to `labels` list
         labels.append(self.classes.index(data_label))
         
         print(data_label)
         
-        (x,y,w,h) = map(float, member[data_label][0])
+        (x,y,w,h) = member[1:]
         
         xmin = (float(x-w/2))
         xmax = (float(x+w/2))

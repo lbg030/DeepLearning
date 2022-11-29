@@ -7,9 +7,9 @@ NUM_EPOCHS = 10 # number of epochs to train for
 DEVICE = torch.device('cuda:3') if torch.cuda.is_available() else torch.device('cpu')
 
 # training images and XML files directory
-TRAIN_DIR = '/Users/ibyeong-gwon/Downloads/train_a'
+TRAIN_DIR = '/Users/ibyeong-gwon/Desktop/total'
 # validation images and XML files directory
-VALID_DIR = '/Users/ibyeong-gwon/Downloads/test_a'
+VALID_DIR = '/Users/ibyeong-gwon/Desktop/total'
 
 # classes: 0 index is reserved for background
 CLASSES = [
