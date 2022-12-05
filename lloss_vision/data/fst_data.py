@@ -6,7 +6,6 @@ import torchvision.transforms as T
 
 from pathlib import Path
 from PIL import Image
-from config import *
 
 # config용 셀 
 

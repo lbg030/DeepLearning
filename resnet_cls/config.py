@@ -1,0 +1,8 @@
+EPOCH = 200
+EPOCHL = 120
+
+BATCH = 4
+LR = 0.001
+MILESTONES = [160]
+
+device = "cpu"
