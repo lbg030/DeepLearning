@@ -8,6 +8,11 @@ from pathlib import Path
 from PIL import Image
 from config import *
 
+# config용 셀 
+
+# 실험 관련 config 
+n_exp = 19
+
 # 데이터 관련 config 
 # data_head = '/home/lbg030/luna/data/fst'
 data_src = "/home/lbg030/luna/data/custom_data"
@@ -52,19 +57,29 @@ class FSTData(Dataset) :
             img = self.transform(img)
         return img, label
 
-train_transform = T.Compose([
-    transforms.Resize((360, 360)),
-    T.RandomHorizontalFlip(),
-    T.ToTensor(),
-])
+# train_transform = T.Compose([
+#         T.Resize((32,32)),
+#         T.RandomHorizontalFlip(),
+#         T.RandomCrop(size=32, padding=4),
+#         T.ToTensor(),
+#         T.Normalize([0.4914, 0.4822, 0.4465], [0.2023, 0.1994, 0.2010]) # T.Normalize((0.5071, 0.4867, 0.4408), (0.2675, 0.2565, 0.2761)) # CIFAR-100
+#     ])
 
 test_transform = T.Compose([
-    transforms.Resize((360, 360)),
-    T.ToTensor(),
-])
+        # T.Resize((32,32)),
+        T.ToTensor(),
+        T.Normalize([0.4914, 0.4822, 0.4465], [0.2023, 0.1994, 0.2010]) # T.Normalize((0.5071, 0.4867, 0.4408), (0.2675, 0.2565, 0.2761)) # CIFAR-100
+    ])
+
+# transform = transforms.Compose([
+#         transforms.ToTensor(),
+#         transforms.Resize((360, 360))
+#     ])
+
+# train_data = FSTData(data_dir=data_src, training_type='train', transform = train_transform)
+# test_data = FSTData(data_dir=data_src, training_type='test', transform = test_transform)
+
+# train_loader = DataLoader(train_data, num_workers=4, shuffle=True)
+# test_loader = DataLoader(test_data, num_workers=4, shuffle=True)
 
 train_test_data = FSTData(data_dir=data_src, training_type='train', transform = test_transform)
-
-train_data = FSTData(data_dir=data_src, training_type='train', transform = train_transform)
-unlabeled_data = FSTData(data_dir=data_src, training_type='train', transform = test_transform)
-test_data = FSTData(data_dir=data_src, training_type='test', transform = test_transform)

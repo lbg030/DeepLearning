@@ -1,8 +1,10 @@
 ''' Configuration File.
 '''
 
-device = 'cuda:3'
+device = 'cuda:2'
+CUDA_VISIBLE_DEVICES = 2
 
+NUM_TRAIN = 9836 # N 트레인 데이터 수
 BATCH     = 8 # B 
 SUBSET    = 2000 # M
 ADDENDUM  = 100 # K
@@ -11,13 +13,13 @@ CYCLES = 5
 
 
 # 몇개씩 라벨 셋 사이즈를 설정할건지 ( 몇개씩 증가할 건지 -> a number of data per ex) # 상관 관계를 잘 모름
-PATH = "/home/lbg030/luna/workspaces/Intern/Coreset/models/model"
+PATH = "/home/lbg030/luna/workspaces/Intern/coreset/models/model"
 
 MARGIN = 1.0 # xi
 
 WEIGHT = 1.0 # lambda
 
-EPOCH = 2
+EPOCH = 200
 
 # EPOCH_GCN = 20
 LR = 0.1

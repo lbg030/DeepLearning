@@ -1,0 +1,338 @@
+accuracy : 0.5388
+f1 score : 0.5492
+precision : 0.6287
+recall : 0.5388
+Trial 1/5 || Cycle 1/5 || Label set size 80
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.54
+len dataloaders['train'] = 40
+{'0': 97, '1': 23, '2': 23, '3': 17}
+>> Train a Model.
+100%|██████████| 200/200 [08:38<00:00,  2.59s/it]>> Finished.
+
+accuracy : 0.6299
+f1 score : 0.6173
+precision : 0.6442
+recall : 0.6299
+Trial 1/5 || Cycle 2/5 || Label set size 160
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.35
+len dataloaders['train'] = 60
+{'0': 142, '1': 18, '2': 52, '3': 28}
+>> Train a Model.
+100%|██████████| 200/200 [12:01<00:00,  3.61s/it]>> Finished.
+
+accuracy : 0.6507
+f1 score : 0.5190
+precision : 0.4848
+recall : 0.6507
+Trial 1/5 || Cycle 3/5 || Label set size 240
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.00
+len dataloaders['train'] = 80
+{'0': 165, '1': 37, '2': 60, '3': 58}
+>> Train a Model.
+100%|██████████| 200/200 [15:38<00:00,  4.69s/it]>> Finished.
+
+accuracy : 0.6463
+f1 score : 0.5074
+precision : 0.4177
+recall : 0.6463
+Trial 1/5 || Cycle 4/5 || Label set size 320
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.00
+len dataloaders['train'] = 100
+{'0': 249, '1': 31, '2': 69, '3': 51}
+>> Train a Model.
+100%|██████████| 200/200 [18:49<00:00,  5.65s/it]>> Finished.
+
+accuracy : 0.6463
+f1 score : 0.5074
+precision : 0.4177
+recall : 0.6463
+Trial 1/5 || Cycle 5/5 || Label set size 400
+Finished.
+data_train = 2675,  data_test = 670
+no_train = 2600
+len dataloaders['train'] = 20
+{'0': 48, '1': 18, '2': 11, '3': 3}
+>> Train a Model.
+100%|██████████| 200/200 [05:25<00:00,  1.63s/it]>> Finished.
+
+accuracy : 0.2284
+f1 score : 0.1599
+precision : 0.4287
+recall : 0.2284
+Trial 2/5 || Cycle 1/5 || Label set size 80
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.06
+len dataloaders['train'] = 40
+{'0': 91, '1': 21, '2': 36, '3': 12}
+>> Train a Model.
+100%|██████████| 200/200 [08:40<00:00,  2.60s/it]>> Finished.
+
+accuracy : 0.6328
+f1 score : 0.6176
+precision : 0.6359
+recall : 0.6328
+Trial 2/5 || Cycle 2/5 || Label set size 160
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.36
+len dataloaders['train'] = 60
+{'0': 132, '1': 18, '2': 59, '3': 31}
+>> Train a Model.
+100%|██████████| 200/200 [12:08<00:00,  3.64s/it]>> Finished.
+
+accuracy : 0.7030
+f1 score : 0.6807
+precision : 0.6948
+recall : 0.7030
+Trial 2/5 || Cycle 3/5 || Label set size 240
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.36
+len dataloaders['train'] = 80
+{'0': 172, '1': 24, '2': 80, '3': 44}
+>> Train a Model.
+100%|██████████| 200/200 [15:29<00:00,  4.65s/it]>> Finished.
+
+accuracy : 0.6403
+f1 score : 0.5467
+precision : 0.4935
+recall : 0.6403
+Trial 2/5 || Cycle 4/5 || Label set size 320
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.18
+len dataloaders['train'] = 100
+{'0': 232, '1': 24, '2': 86, '3': 58}
+>> Train a Model.
+100%|██████████| 200/200 [18:58<00:00,  5.69s/it]>> Finished.
+
+accuracy : 0.0627
+f1 score : 0.0074
+precision : 0.0039
+recall : 0.0627
+Trial 2/5 || Cycle 5/5 || Label set size 400
+Finished.
+data_train = 2675,  data_test = 670
+no_train = 2600
+len dataloaders['train'] = 20
+{'0': 54, '1': 8, '2': 13, '3': 5}
+>> Train a Model.
+100%|██████████| 200/200 [05:24<00:00,  1.62s/it]>> Finished.
+
+accuracy : 0.5448
+f1 score : 0.5506
+precision : 0.5899
+recall : 0.5448
+Trial 3/5 || Cycle 1/5 || Label set size 80
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.29
+len dataloaders['train'] = 40
+{'0': 96, '1': 7, '2': 38, '3': 19}
+>> Train a Model.
+100%|██████████| 200/200 [08:43<00:00,  2.62s/it]>> Finished.
+
+accuracy : 0.6448
+f1 score : 0.5424
+precision : 0.4964
+recall : 0.6448
+Trial 3/5 || Cycle 2/5 || Label set size 160
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.21
+len dataloaders['train'] = 60
+{'0': 136, '1': 18, '2': 51, '3': 35}
+>> Train a Model.
+100%|██████████| 200/200 [12:13<00:00,  3.67s/it]>> Finished.
+
+accuracy : 0.6433
+f1 score : 0.5396
+precision : 0.4844
+recall : 0.6433
+Trial 3/5 || Cycle 3/5 || Label set size 240
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.02
+len dataloaders['train'] = 80
+{'0': 180, '1': 14, '2': 83, '3': 43}
+>> Train a Model.
+100%|██████████| 200/200 [15:30<00:00,  4.65s/it]>> Finished.
+
+accuracy : 0.6582
+f1 score : 0.5317
+precision : 0.4797
+recall : 0.6582
+Trial 3/5 || Cycle 4/5 || Label set size 320
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.00
+len dataloaders['train'] = 100
+{'0': 199, '1': 28, '2': 124, '3': 49}
+>> Train a Model.
+100%|██████████| 200/200 [18:45<00:00,  5.63s/it]>> Finished.
+
+accuracy : 0.6463
+f1 score : 0.5074
+precision : 0.4177
+recall : 0.6463
+Trial 3/5 || Cycle 5/5 || Label set size 400
+Finished.
+data_train = 2675,  data_test = 670
+no_train = 2600
+len dataloaders['train'] = 20
+{'0': 51, '1': 16, '2': 9, '3': 4}
+>> Train a Model.
+100%|██████████| 200/200 [05:26<00:00,  1.63s/it]>> Finished.
+
+accuracy : 0.5806
+f1 score : 0.5670
+precision : 0.6504
+recall : 0.5806
+Trial 4/5 || Cycle 1/5 || Label set size 80
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.50
+len dataloaders['train'] = 40
+{'0': 86, '1': 21, '2': 36, '3': 17}
+>> Train a Model.
+100%|██████████| 200/200 [08:45<00:00,  2.63s/it]>> Finished.
+
+accuracy : 0.2269
+f1 score : 0.2310
+precision : 0.6017
+recall : 0.2269
+Trial 4/5 || Cycle 2/5 || Label set size 160
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.47
+len dataloaders['train'] = 60
+{'0': 139, '1': 25, '2': 48, '3': 28}
+>> Train a Model.
+100%|██████████| 200/200 [12:15<00:00,  3.68s/it]>> Finished.
+
+accuracy : 0.6552
+f1 score : 0.5354
+precision : 0.5826
+recall : 0.6552
+Trial 4/5 || Cycle 3/5 || Label set size 240
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.14
+len dataloaders['train'] = 80
+{'0': 176, '1': 23, '2': 80, '3': 41}
+>> Train a Model.
+100%|██████████| 200/200 [15:36<00:00,  4.68s/it]>> Finished.
+
+accuracy : 0.6731
+f1 score : 0.5658
+precision : 0.5640
+recall : 0.6731
+Trial 4/5 || Cycle 4/5 || Label set size 320
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.05
+len dataloaders['train'] = 100
+{'0': 217, '1': 33, '2': 90, '3': 60}
+>> Train a Model.
+100%|██████████| 200/200 [19:04<00:00,  5.72s/it]>> Finished.
+
+accuracy : 0.6463
+f1 score : 0.5074
+precision : 0.4177
+recall : 0.6463
+Trial 4/5 || Cycle 5/5 || Label set size 400
+Finished.
+data_train = 2675,  data_test = 670
+no_train = 2600
+len dataloaders['train'] = 20
+{'0': 39, '1': 22, '2': 9, '3': 10}
+>> Train a Model.
+100%|██████████| 200/200 [05:27<00:00,  1.64s/it]
+>> Finished.
+accuracy : 0.4597
+f1 score : 0.4811
+precision : 0.5890
+recall : 0.4597
+Trial 5/5 || Cycle 1/5 || Label set size 80
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.79
+len dataloaders['train'] = 40
+{'0': 107, '1': 22, '2': 12, '3': 19}
+>> Train a Model.
+100%|██████████| 200/200 [08:51<00:00,  2.66s/it]>> Finished.
+
+accuracy : 0.5522
+f1 score : 0.5290
+precision : 0.5592
+recall : 0.5522
+Trial 5/5 || Cycle 2/5 || Label set size 160
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.56
+len dataloaders['train'] = 60
+{'0': 165, '1': 32, '2': 19, '3': 24}
+>> Train a Model.
+100%|██████████| 200/200 [12:03<00:00,  3.62s/it]>> Finished.
+
+accuracy : 0.6224
+f1 score : 0.5664
+precision : 0.5311
+recall : 0.6224
+Trial 5/5 || Cycle 3/5 || Label set size 240
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.11
+len dataloaders['train'] = 80
+{'0': 190, '1': 37, '2': 52, '3': 41}
+>> Train a Model.
+100%|██████████| 200/200 [15:38<00:00,  4.69s/it]>> Finished.
+
+accuracy : 0.6552
+f1 score : 0.5259
+precision : 0.4841
+recall : 0.6552
+Trial 5/5 || Cycle 4/5 || Label set size 320
+Getting transformed features...
+Calculating distances...
+Using flat_X as features.
+Maximum distance from cluster centers is 0.00
+len dataloaders['train'] = 100
+{'0': 253, '1': 29, '2': 66, '3': 52}
+>> Train a Model.
+100%|██████████| 200/200 [19:00<00:00,  5.70s/it]>> Finished.
+
+accuracy : 0.6463
+f1 score : 0.5074
+precision : 0.4177
+recall : 0.6463
+Trial 5/5 || Cycle 5/5 || Label set size 400
+Finished.
