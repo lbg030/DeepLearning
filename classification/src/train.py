@@ -43,7 +43,6 @@ def test(model, dataloader):
         for data in dataloader['test']:
             input = data[0].to(device)
             label = data[1].to(device)
-            
             predicted = model(input)
             
             labels.extend(label.detach().tolist())

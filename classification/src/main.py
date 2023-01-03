@@ -31,6 +31,7 @@ dataloaders  = {'train': train_loader, 'test': test_loader}
 model = timm.create_model('resnet50', pretrained = True, num_classes = 2).to(device)
 criterion = nn.CrossEntropyLoss()
 optim = optim.Adam(model.parameters(), lr = LR)
+
 scheduler = lr_scheduler.MultiStepLR(optim, milestones = [30,60,90])
 
 train(model, criterion, optim, scheduler, dataloaders, EPOCH)
