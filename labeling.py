@@ -36,7 +36,6 @@ def main(args):
     print(f"슬릿 데이터 갯수: {slit_count}개")
     print(f"둘다 있는 데이터 갯수: {both_count}개")
 
-
 if __name__=="__main__":
     args = parser()
     # parser를 사용하지 않을시, 아래 예시와 같이 args.dir에 십시일반 데이터가 위치한 경로를 넣어주세요 
