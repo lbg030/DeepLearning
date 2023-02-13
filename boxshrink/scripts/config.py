@@ -3,7 +3,7 @@ import os
 import torch
 
 # Training settings
-BASE_DIR = "/".join(os.getcwd().split("\\"))
+BASE_DIR = "/".join(os.getcwd().split("/"))
 DATA_DIR = BASE_DIR + "/data"
 BOX_DIR = DATA_DIR + "/boxmasks"
 RAPID_DIR = DATA_DIR + "/testing/rapid_boxshrink"
@@ -13,7 +13,7 @@ CHECKPOINT_MODEL_DIR = BASE_DIR + "/model/checkpoint"
 EXPORT_CSV_DIR = BASE_DIR + "/model/metrics"
 EVAL_ON_MASKS = True
 # Training input should be one of boxes, rapid_boxshrink, robust_boxshrink
-TRAINING_INPUT = "robust_boxshrink"
+TRAINING_INPUT = "boxes"
 # Choose here any prefix to identify your runs
 STATE = "_".join(["Benchmarking", TRAINING_INPUT])
 EXPORT_BEST_MODEL = True
@@ -60,12 +60,12 @@ GAMMA = 0.5
 
 LOSS = "CrossEntropyLoss"
 BATCH_SIZE = 10
-N_EPOCHS = 25
+N_EPOCHS = 100
 START_EPOCH = 0
 # Return intermediate results & Plot losses
 PER_X_BATCH = 1
 PER_X_EPOCH = 2
-PER_X_EPOCH_PLOT = 1
+PER_X_EPOCH_PLOT = 5
 
 # Mode for model name
 MODE = "Unet_colonoscopy"

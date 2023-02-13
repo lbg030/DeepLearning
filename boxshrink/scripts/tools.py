@@ -3,13 +3,13 @@
 #############################################################################################################################
 import os
 import re
-import cv2
+
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
 from PIL import Image
+import cv2
 from torchvision.transforms import ToPILImage
-
 
 def show_cam_on_image(img: np.ndarray,
                       mask: np.ndarray,
@@ -17,7 +17,6 @@ def show_cam_on_image(img: np.ndarray,
                       colormap: int = cv2.COLORMAP_JET) -> np.ndarray:
     """ This function overlays the cam mask on the image as an heatmap.
     By default the heatmap is in BGR format.
-
     :param img: The base image in RGB or BGR format.
     :param mask: The cam mask.
     :param use_rgb: Whether to use an RGB or BGR heatmap, this should be set to True if 'img' is in RGB format.
@@ -36,7 +35,6 @@ def show_cam_on_image(img: np.ndarray,
     cam = heatmap + img
     cam = cam / np.max(cam)
     return np.uint8(255 * cam)
-
 # Function to return all files with a certain ending
 def return_files_in_directory(path, ending):
     """Returns all files with a certain ending in path
