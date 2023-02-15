@@ -97,6 +97,10 @@ def get_foreground_background_embeddings(
             start_label=start_label,
         )
     )
+    
+    print(mask.shape)
+    print(all_superpixels_mask.shape)
+
     hadamard = all_superpixels_mask.to(device) * mask.to(device)
     overlap = (hadamard / class_indx).type(torch.IntTensor)
     # Get numbers to list, start from second element because first is 0
@@ -171,6 +175,7 @@ def get_mean_embeddings(
                     train_org_images.to(device),
                 )
                 for i in range(0, train_inputs.shape[0], 1):
+                    
                     embed_f, embed_b, _, _ = get_foreground_background_embeddings(
                         train_labels[i],
                         train_org_images[i],
@@ -396,6 +401,9 @@ def generate_embedding_masks_for_dataset(
             for train_inputs, train_labels, train_org_images in tepoch:
                 for idx in range(train_labels.shape[0]):
                     mask_name = dataset.X[filecounter]
+                    
+                    print(f"train_labels[idx] = {train_labels[idx].shape}")
+                    
                     pseudomask = get_embedding_mask_or_box(
                         train_labels[idx],
                         train_org_images[idx],

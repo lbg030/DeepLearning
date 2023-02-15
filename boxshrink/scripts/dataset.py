@@ -4,6 +4,7 @@ import torchvision.transforms as transforms
 from PIL import Image
 from tifffile import imread
 from torch.utils.data import Dataset
+import cv2
 
 img_transform = transforms.Compose(
     [
@@ -34,6 +35,8 @@ class Colonoscopy_Dataset(Dataset):
             mask = torch.tensor(imread(self.Y[index])).long()
         elif ".png" in self.Y[index]:
             mask = torch.Tensor(np.array(Image.open(self.Y[index]))).long()
+            # mask = cv2.imread(self.Y[index])
+            
         mask[mask > 0] = 1
         img_org = img
         img_transformed = self.img_transform(img)
