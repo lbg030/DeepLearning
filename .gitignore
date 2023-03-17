@@ -9,3 +9,5 @@
 *.pt
 *.pth
 .gitignore
+*.mp4
+*.mov
