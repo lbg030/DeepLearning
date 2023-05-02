@@ -1,0 +1,4 @@
+EPOCH = 10
+LR = 1e-3
+BATCH = 16
+SEED = 41
