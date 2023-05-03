@@ -51,7 +51,7 @@ train_transform =  A.Compose([
     A.HorizontalFlip(p=0.5),
     A.RandomBrightnessContrast(p=0.2),
     A.Rotate(limit=15),
-    A.Resize(640, 640),
+    A.Resize(360, 360),
     A.OneOf([
         A.GaussianBlur(blur_limit=3, p=0.2),
         A.MotionBlur(blur_limit=3, p=0.2),
