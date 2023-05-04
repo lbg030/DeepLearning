@@ -1,4 +1,5 @@
-EPOCH = 10
+EPOCH = 50
 LR = 1e-3
-BATCH = 16
+BATCH = 32
 SEED = 41
+DEVICE = "cuda:0"
