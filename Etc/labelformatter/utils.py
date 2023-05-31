@@ -4,6 +4,19 @@ from pathlib import Path
 import sys
 
 
+def labelme2hubble(json_data, file_name, class_list = None):
+    boxes = json_data['shapes']
+    hubble_set = list(dict() for _ in range(len(boxes)))
+    for ind in range(len(boxes)):
+        hubble_set[ind]['defectTypeName'] = boxes[ind]['label']
+        ul = boxes[ind]['points'][0]
+        br = boxes[ind]['points'][1]
+        ur = [br[0], ul[1]]
+        bl = [ul[0], br[1]]
+        hubble_set[ind]['data'] = {'coordinateList' : [ul, ur, br, bl]}
+    with open(file_name, 'w') as w_file:
+        json.dump(hubble_set, w_file, indent = 4)
+
 def labelme2yolo(data, file_path, class_list):
     def convert(label, size, box):
         c = label

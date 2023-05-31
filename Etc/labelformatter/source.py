@@ -3,7 +3,8 @@ import os
 import json
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QLabel, QComboBox, QFileDialog, QMessageBox
 
-from labelme2yolo import labelme2yolo
+from utils import labelme2yolo, labelme2hubble
+
 
 class MyApp(QWidget):
     def __init__(self):
@@ -12,13 +13,14 @@ class MyApp(QWidget):
 
     def initUI(self):
         self.combo = QComboBox(self)
-        self.combo.addItem("Labelme2YOLO(txt)")
-        self.combo.addItem("YOLO2Labelme(json)")
-        
-        #TODO: add other formats
-        self.combo.addItem("lens2YOLO(txt)")
-        self.combo.addItem("lens2labelme(json)")
-        self.ciombo.addItem("lens2Hubble(json)")
+        self.combo.addItem("Labelme2YOLO")
+        self.combo.addItem("Labelme2Hubble")
+
+        # TODO: add other formats
+        # self.combo.addItem("YOLO2Labelme")
+        # self.combo.addItem("lens2YOLO")
+        # self.combo.addItem("lens2labelme")
+        # self.combo.addItem("lens2Hubble")
 
         self.lbl = QLabel('Label', self)
         self.btn_dir = QPushButton('Select Directory', self)
@@ -41,10 +43,12 @@ class MyApp(QWidget):
         self.show()
 
     def select_directory(self):
-        self.directory = QFileDialog.getExistingDirectory(self, "Select Directory")
+        self.directory = QFileDialog.getExistingDirectory(
+            self, "Select Directory")
         if self.directory:
             self.btn_format.setEnabled(True)
-            self.class_list = [name for name in os.listdir(self.directory) if os.path.isdir(os.path.join(self.directory, name))]
+            self.class_list = [name for name in os.listdir(
+                self.directory) if os.path.isdir(os.path.join(self.directory, name))]
 
     def format_label(self):
         format_type = self.combo.currentText()
@@ -52,7 +56,8 @@ class MyApp(QWidget):
         try:
             for dir_name in self.class_list:
                 subdir_path = os.path.join(self.directory, dir_name)
-                json_files = [f for f in os.listdir(subdir_path) if f.endswith('.json')]
+                json_files = [f for f in os.listdir(
+                    subdir_path) if f.endswith('.json')]
 
                 for file_name in json_files:
                     file_path = os.path.join(subdir_path, file_name)
@@ -60,30 +65,38 @@ class MyApp(QWidget):
                         data = json.load(file)
 
                     if format_type == "Labelme2YOLO":
-                        formatted_data = self.format_to_yolo(data, file_path)
-                        self.lbl.setText("Formatting completed.")
+                        formatted_data = self.format_to_yolo(
+                            data, file_path, self.class_list)
 
-                    elif format_type == "YOLO2Labelme":
-                        formatted_data = self.format_to_labelme(data, file_path)
+                    elif format_type == "Labelme2Hubble":
+                        formatted_data = self.format_to_hubble(
+                            data, file_path, self.class_list)
+
+                    # elif format_type == "YOLO2Labelme":
+                    #     formatted_data = self.format_to_labelme(
+                    #         data, file_path, self.class_list)
 
                     # self.save_formatted_data(dir_name, file_name, formatted_data)
 
-            self.lbl.setText("Formatting completed.")
+            self.lbl.setText(f"Saved Complete | Total : {len(json_files)}, Label : {str(formatted_data)}") if formatted_data else self.lbl.setText(
+                f"Saved Complete | Total : {len(json_files)}")
 
         except Exception as e:
             QMessageBox.critical(self, "Error", str(e))
 
-    def format_to_yolo(self, data, file_path):
-        labelme2yolo(data, file_path)
-        return "YOLO Formatted: " + str(data)
+    def format_to_yolo(self, data, file_path, class_list):
+        defect_label = labelme2yolo(data, file_path, class_list)
 
-    def format_to_labelme(self, data):
-        # data를 Labelme 포맷으로 변환하는 코드를 여기에 작성하세요.
-        return "Labelme Formatted: " + str(data)
+        return defect_label
 
-    def save_formatted_data(self, dir_name, file_name, data):
-        # 변환된 데이터를 새 파일에 저장하는 코드를 여기에 작성하세요.
-        pass
+    def format_to_hubble(self, data, file_path, class_list=None):
+        defect_label = labelme2hubble(data, file_path, class_list)
+
+        return defect_label
+
+    # def format_to_labelme(self, data):
+    #     return "Labelme Formatted: " + str(data)
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
